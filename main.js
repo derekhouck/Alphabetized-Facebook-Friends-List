@@ -1,5 +1,8 @@
 /* Alphabetized Facebook Friends List in node.js */
-var http = require("http");
+var http    = require("http");
+var fs      = require("fs");
+
+var data = fs.readFileSync('friendslist.txt');
 
 http.createServer(function (request, response) {
     // Send the HTTP header
@@ -8,7 +11,7 @@ http.createServer(function (request, response) {
     response.writeHead(200, {'Content-Type': 'text/plain'});
 
     // Send the response body as "Hello World"
-    response.end('Alphabetized Facebook Friends List\n');
+    response.end(data.toString());
 }).listen(8082);
 
 // Console will print the message
