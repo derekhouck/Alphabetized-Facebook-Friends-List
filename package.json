@@ -1,0 +1,32 @@
+{
+  "name": "alphabetized-facebook-friends-list",
+  "version": "1.0.0",
+  "description": "An alphabetized list of your Facebook friends.",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.1",
+    "multer": "^1.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/derekhouck/Alphabetized-Facebook-Friends-List.git"
+  },
+  "keywords": [
+    "facebook",
+    "friends",
+    "alphabetized"
+  ],
+  "author": "Derek Houck",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/derekhouck/Alphabetized-Facebook-Friends-List/issues"
+  },
+  "homepage": "https://github.com/derekhouck/Alphabetized-Facebook-Friends-List#readme"
+}
