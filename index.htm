@@ -1,10 +1,37 @@
 <html>
   <head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <title>Alphabetized Facebook Friends List</title>
+    <script>
+      $(document).ready(function() {
+        $.ajaxSetup({ cache: true });
+        $.getScript('//connect.facebook.net/en_US/sdk.js', function(){
+          FB.init({
+            appId: '1881323855483967',
+            version: 'v2.8'
+          });     
+          $('#loginbutton,#feedbutton').removeAttr('disabled');
+          FB.getLoginStatus(function(response) {
+            if (response.status === 'connected') {
+              console.log('Logged in.');
+            }
+            else {
+              FB.login();
+            }
+          });
+        });
+      });
+    </script>
   </head>
 
   <body>
+    <script>
+        function myFacebookLogin() {
+          FB.login(function(){}, {scope: 'publish_actions'});
+        }
+    </script>
     <h1>Alphabetized Facebook Friends List</h1>
+    <button onclick="myFacebookLogin()">Login with Facebook</button>
     <ol>
       <li>
         Friend 1
