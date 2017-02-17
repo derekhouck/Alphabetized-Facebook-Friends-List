@@ -6,13 +6,8 @@
   </head>
 
   <body>
-    <script>
-        function myFacebookLogin() {
-          FB.login(function(){}, {scope: 'publish_actions'});
-        }
-    </script>
     <h1>Alphabetized Facebook Friends List</h1>
-    <button onclick="myFacebookLogin()">Login with Facebook</button>
+    <button id="loginButton">Login with Facebook</button>
     <ol>
       <li>
         Friend 1

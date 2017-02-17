@@ -6,22 +6,32 @@ $(document).ready(function() {
         version: 'v2.8'
       });     
       $('#loginbutton,#feedbutton').removeAttr('disabled');
-      FB.getLoginStatus(function(response) {
-        if (response.status === 'connected') {
-          console.log('Logged in.');
-          var uid = response.authResponse.userID;
-          var accessToken = response.authResponse.accessToken;
-          console.log(accessToken);
-          FB.api('/me', {
-            access_token : accessToken
-          },
-            function(response) {
-            $("h1").append(" for " + response.name);
+        FB.getLoginStatus(updateStatusCallback);
+    });
+    $.fn.createList = function() {
+    }
+    $("#loginButton").click(function() {
+        if (typeof FB !== "undefined") {
+          FB.getLoginStatus(function(response) {
+            if (response.status === 'connected') {
+                var uid = response.authResponse.userID;
+                var accessToken = response.authResponse.accessToken;
+                FB.api('/me', function(response) {
+                    $("h1").append(" for " + response.name);
+                });
+                FB.api('/me/friends', {
+                  access_token : accessToken
+                },
+                  function(response) {
+                      console.log(response);
+                });
+            }
+            else {
+              FB.login();
+            }
           });
+        } else {
+            alert("Cannot reach Facebook right now.");
         }
-        else {
-          FB.login();
-        }
-      });
     });
 });
