@@ -1,5 +1,9 @@
 var express = require('express');
+var favicon = require('serve-favicon');
+
 var app = express();
+app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(express.static('public'));
 
 app.get('/', function (req, res) {
     res.sendFile( __dirname + "/" + "index.htm" );
